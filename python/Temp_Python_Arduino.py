@@ -27,7 +27,7 @@ def enviar_email1():
 def enviar_email2():
     corpo_email = """
     <p>Olá</p>
-    <p>Vernelho</p>
+    <p>Vermelho</p>
     """
 
     msg = email.message.Message()
@@ -48,7 +48,7 @@ def enviar_email2():
 def enviar_email3():
     corpo_email = """
     <p>Olá</p>
-    <p>PAmarelo</p>
+    <p>Amarelo</p>
     """
 
     msg = email.message.Message()
@@ -100,14 +100,9 @@ try:
                     print("Executando ação para C")
                     enviar_email3()
                     last_letter = letter
-
-
 except serial.SerialException as e:
     print(f"Erro ao abrir a porta serial: {e}")
-except Exception as e:
-    print(f"Erro: {e}")
 finally:
-    # Fecha a porta serial com segurança
     try:
         arduino.close()
     except:
