@@ -24,11 +24,11 @@ def enviar_email(letter: str) -> str:
     corpo_email = ""
     match letter:
         case "A":
-            corpo_email = """<p>Olá</p><br><p>Verde!</p>"""
-        case "B":
             corpo_email = """<p>Olá</p><br><p>Vermelho!</p>"""
+        case "B":
+            corpo_email = """<p>Olá</p><br><p>Azul!</p>"""
         case "C":
-            corpo_email = """<p>Olá</p><br><p>Amarelo!</p>"""
+            corpo_email = """<p>Olá</p><br><p>Verde!</p>"""
 
     msg = email.message.Message()
     msg['Subject'] = "WARNING"
