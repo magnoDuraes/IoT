@@ -1,4 +1,4 @@
-# import serial
+import serial
 import smtplib
 import email.message
 from time import sleep
@@ -51,19 +51,15 @@ def enviar_email(letter: str) -> str:
         
     return letter
 
-while True:
-    enviar_email("A")
-    sleep(1)
-
-# try:
-#     arduino = serial.Serial('COM4', 9600, timeout=1)
-#     sleep(2) 
-#     last_letter = None
-#     while True:
-#         if arduino.in_waiting > 0:
-#             letter = arduino.readline().decode('utf-8').strip()
-#             if letter != last_letter:
-#                 print(f'Letra mudou para: {letter}')
-#                 last_letter = enviar_email(letter)         
-# except serial.SerialException as e:
-#     print(f"Erro ao abrir a porta serial: {e}")
+try:
+    arduino = serial.Serial('COM4', 9600, timeout=1)
+    sleep(2) 
+    last_letter = None
+    while True:
+        if arduino.in_waiting > 0:
+            letter = arduino.readline().decode('utf-8').strip()
+            if letter != last_letter:
+                print(f'Letra mudou para: {letter}')
+                last_letter = enviar_email(letter)         
+except serial.SerialException as e:
+    print(f"Erro ao abrir a porta serial: {e}")
